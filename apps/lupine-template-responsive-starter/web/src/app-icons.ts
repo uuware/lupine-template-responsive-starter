@@ -58,6 +58,9 @@ export const appIconsCss: CssProps = {
     maskRepeat: 'no-repeat',
     maskPosition: 'center',
     maskSize: 'contain',
+    '-webkit-mask-repeat': 'no-repeat',
+    '-webkit-mask-position': 'center',
+    '-webkit-mask-size': 'contain',
     WebkitMaskRepeat: 'no-repeat',
     WebkitMaskPosition: 'center',
     WebkitMaskSize: 'contain',
@@ -65,6 +68,7 @@ export const appIconsCss: CssProps = {
   },
   ...Object.entries(appIcons).reduce((acc: any, [key, svg]) => {
     acc['.ifc-icon.' + key] = {
+      '-webkit-mask-image': 'url("' + svg + '")',
       maskImage: 'url("' + svg + '")',
     };
     return acc;
