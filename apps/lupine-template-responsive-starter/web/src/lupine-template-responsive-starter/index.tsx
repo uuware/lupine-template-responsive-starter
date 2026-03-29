@@ -17,6 +17,10 @@ import { themes } from '../styles/theme';
 import { baseCss } from '../styles/base-css';
 import { AppResponsiveFrame } from '../frames/app-responsive-frame';
 import { HomePage } from '../pages/home-page';
+import { FinancePage } from '../pages/finance-page';
+import { AboutPage } from '../pages/about-page';
+import { MinePage } from '../pages/mine-page';
+import { ToolsPage } from '../pages/tools-page';
 
 if (isFrontEnd() && webEnv('NODE_ENV', '') === 'development') {
   debugWatch(webEnv('API_PORT', 0));
@@ -30,6 +34,10 @@ setDefaultPageTitle('Lupine Template Responsive Starter');
 const pageRouter = new PageRouter();
 pageRouter.setFramePage({ component: AppResponsiveFrame, placeholderClassname: 'user-page-placeholder' });
 pageRouter.setSubDir('/lupine-template-responsive-starter');
+pageRouter.use('/finance', FinancePage);
+pageRouter.use('/about', AboutPage);
+pageRouter.use('/mine', MinePage);
+pageRouter.use('/tools', ToolsPage);
 pageRouter.use('*', HomePage);
 
 bindRouter(pageRouter);
